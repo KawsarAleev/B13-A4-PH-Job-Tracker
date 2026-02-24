@@ -219,4 +219,12 @@ window.updateStatus = function (id, newStatus) {
     renderJobs();
   }
 };
+window.deleteJob = function (id) {
+  const confirmDelete = confirm("Do you want to delete?");
+  if (confirmDelete) {
+    jobs = jobs.filter((j) => j.id !== id);
+    updateDashboardCounts();
+    renderJobs();
+  }
+};
 init();

@@ -104,3 +104,11 @@ function init() {
   updateDashboardCounts();
   renderJobs();
 }
+function updateDashboardCounts() {
+  const total = jobs.length;
+  const interviews = jobs.filter((j) => j.status === "interview").length;
+  const rejected = jobs.filter((j) => j.status === "rejected").length;
+  totalCountEl.textContent = total;
+  interviewCountEl.textContent = interviews;
+  rejectedCountEl.textContent = rejected;
+}

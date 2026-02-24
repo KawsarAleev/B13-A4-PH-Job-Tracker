@@ -211,3 +211,12 @@ function createJobCard(job) {
             `;
   return div;
 }
+window.updateStatus = function (id, newStatus) {
+  const jobIndex = jobs.findIndex((j) => j.id === id);
+  if (jobIndex > -1) {
+    jobs[jobIndex].status = newStatus;
+    updateDashboardCounts();
+    renderJobs();
+  }
+};
+init();
